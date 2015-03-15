@@ -1,85 +1,97 @@
-$(function() {
+(function($) {
 
-    //    Model
-    var Link = Backbone.Model.extend({});
+    // Lazyload images
+    $("img").lazy({
+        delay: 500,
+        effect: 'fadeIn',
+        effectTime: 500
+    });
 
-    //    Colletion
-    var LinksCollection = Backbone.Collection.extend({
-        model: Link,
 
-        initialize: function() {
-            this.initEvents();
-        },
+    // Slide arrows
+    $('.item-arrow').click(function(){
+        var parent = $(this).parents('.item');
+        var current = parent.find('.slide.active');
+        var next = current.next();
+        var prev = current.prev();
 
-        initEvents: function() {
-            this.on('add', this.linksAdd)
-        },
+        if($(this).hasClass('slide-left')) {
+            if(prev.length) {
+                current.removeClass('active');
+                prev.addClass('active');
 
-        linksAdd: function( model ){
-            var view = new LinkView({
-                model: model
-            });
-            view.render();
-            $('#list').append(view.$el);
+            } else {
+                current.removeClass('active');
+                parent.find('.slide').last().addClass('active')
+            }
+
+        } else {
+            if(next.length) {
+                current.removeClass('active');
+                next.addClass('active');
+            } else {
+                current.removeClass('active');
+                parent.find('.slide').first().addClass('active');
+            }
         }
     });
 
-    //    View
-    var LinkView = Backbone.View.extend({
-        render: function () {
-            var taskTemplate = _.template($("#template__link").text());
-            var data = this.model.toJSON();
-            this.setElement(taskTemplate(data));
-        }
-    });
 
-    //    Main App
-    var App = {
-        links: new LinksCollection,
-        number: 1,
-        url: 'http://rutube.ru/api/video/person/350/?format=jsonp',
+    // Filter menu
+    $('.filter-link').click(function() {
+        var $this = $(this);
+        var item = $('.item');
+        var cat;
 
-        init: function() {
-            this.getData();
-            this.initEvents();
-        },
+        if($this.hasClass('active')) { return }
 
-        initEvents: function() {
-            var self = this;
-            $('#button-more').on('click', function() {
-                self.getData();
-            })
-        },
+        $('.filter-link.active').removeClass('active');
+        $this.addClass('active');
+        cat = $this.data('cat').toString();
+        item.removeClass('show');
 
-        getData: function() {
-            var self = this;
-            $.ajax({
-                type: "GET",
-                url: self.url,
-                dataType: "jsonp",
+        if(cat == 'all') {
+            item.removeClass('hide').addClass('show')
+        } else {
+            item.each(function() {
+                var thisData = $(this).data('cat').toString();
 
-                success: function(data) {
-                    var respond = data.results;
-                    var linksData;
-
-                    for (var i = 0; i < respond.length; i++) {
-                        linksData = new Link({
-                            number: self.number++,
-                            link: respond[i].source_url,
-                            category: respond[i].category.name
-                        });
-                        self.links.add(linksData)
-                    }
-
-                    if (!data.has_next) {
-                        $('#button-more').hide()
-                    } else {
-                        self.url = data.next;
-                    }
+                if(thisData.indexOf(cat) > -1 ) {
+                    $(this).removeClass('hide').addClass('show');
+                } else {
+                    $(this).addClass('hide');
                 }
             });
         }
-    };
+    });
+    $('.item').addClass('show');
 
-    App.init()
-});
+
+    // Popap for image
+    $(".image-preview").fancybox({
+        openEffect	: 'elastic',
+        closeEffect	: 'elastic',
+        padding: 0
+    });
+
+
+    // Popap for video
+    $(".video-preview").click(function() {
+        $.fancybox({
+            openEffect	: 'elastic',
+            closeEffect	: 'elastic',
+            padding		: 0,
+            autoScale	: false,
+            width		: 740,
+            height		: 480,
+            href		: this.href.replace(new RegExp("watch\\?v=", "i"), 'v/'),
+            type		: 'swf',
+            swf			: {
+                'wmode'				: 'transparent',
+                'allowfullscreen'	: 'true'
+            }
+        });
+        return false;
+    });
+
+})(jQuery);

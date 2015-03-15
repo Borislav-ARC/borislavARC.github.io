@@ -2,39 +2,235 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <meta name="viewport" content="initial-scale=1, width=device-width">
 
-    <link rel="stylesheet" href="css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="css/main.css"/>
+    <title> Creative People </title>
 
-    <script src="js/jquery-1.11.0.min.js"></script>
-    <script src="js/underscore-min.js"></script>
-    <script src="js/backbone-min.js"></script>
-    <script src="js/main.js"></script>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/jquery.fancybox.css"/>
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans&subset=cyrillic-ext,cyrillic,latin-ext,latin' rel='stylesheet' type='text/css'>
 </head>
 <body>
-    <div class="container">
-
-        <table class="table table-bordered table-striped table-hover table-list" id="list">
-            <tr>
-                <td class="link-number">Номер</td>
-                <td class="link-adress">Ссылка</td>
-                <td class="link-category">Категория / Жанр</td>
-            </tr>
-        </table>
-
-        <div class="button-block">
-            <button class="btn" id="button-more">Загрузить еще</button>
+    <div class="header">
+        <div class="wrap">
+            <div class="header-logo">
+                <a class="logo-icon" href="/"></a>
+                <span class="logo-title">adveniture</span>
+                <span class="logo-slogan">оставь свой след, где его еще нет...</span>
+            </div>
         </div>
     </div>
 
-    <script type="text/x-template" id="template__link">
-        <tr>
-            <td><%= number %></td>
-            <td><a href="<%= link %>"><%= link %></a></td>
-            <td><%= category %></td>
-        </tr>
-    </script>
+    <div class="content">
+        <div class="wrap">
+            <div class="filter-menu">
+                <span class="filter-link active" data-cat="all">ВСЕ СТРАНЫ</span>
+                <span class="filter-link" data-cat="1">КУЛЬТУРА</span>
+                <span class="filter-link" data-cat="2">ЭКСТРИМ</span>
+                <span class="filter-link" data-cat="3">АТМОСФЕРА</span>
+                <span class="filter-link" data-cat="4">ЛЮДИ</span>
+            </div>
 
+            <div class="item-list clearfix">
+
+                <div class="item" data-cat="1,3">
+                    <div class="item-content">
+                        <div class="item-slide active slide">
+                            <img class="item-slide-image" data-src="images/countries/cuba.jpg" data-retina="images/countries-retina/cuba.jpg" src="" alt="slide"/>
+                            <div class="slide-content">
+                                <span class="title">Cuba</span>
+                            </div>
+                        </div>
+
+                        <div class="item-text slide">
+                            <div class="item-text-content">
+                                <div class="text">
+                                    Хэмингуэй, став весьма знаменитым, естественно, мог выбрать любое место
+                                    в мире. Почему же он 22 года прожил
+                                    в Гаване? Потому что это свобода!
+                                </div>
+                                <span class="title-bottom">Cuba</span>
+                            </div>
+                        </div>
+
+                        <div class="item-image slide">
+                            <a class="image-preview" href="images/countries/cuba/01.jpg">
+                                <img class="image-preview-thumb" data-src="images/countries/cuba-preview.jpg" data-retina="images/countries-retina/cuba-preview.jpg" src="" alt="preview"/>
+                                <span class="icon-zoom slide-icon"></span>
+                                <span class="title-bottom">Cuba</span>
+                            </a>
+                        </div>
+
+                        <div class="item-video slide">
+                            <a class="video-preview"  title="The Falltape" href="http://www.youtube.com/watch?v=lU-HEV1ge5Q?fs=1&amp;autoplay=1">
+                                <img class="video-preview-thumb" data-src="images/countries/cuba-video.jpg" data-retina="images/countries-retina/cuba-video.jpg" src="" alt="" />
+                                <span class="icon-play slide-icon"></span>
+                                <span class="title-bottom">Cuba</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="item-arrows">
+                        <span class="item-arrow slide-left"></span><span class="item-arrow slide-right"></span>
+                    </div>
+                </div>
+
+                <div class="item" data-cat="1,4">
+                    <div class="item-content">
+                        <div class="item-slide active slide">
+                            <img class="item-slide-image" data-src="images/countries/russia.jpg" data-retina="images/countries-retina/russia.jpg" src="" alt="slide"/>
+                            <div class="slide-content">
+                                <span class="title">Russia</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item-big">
+                    <img class="item-big-image" data-src="images/countries/big-latin-america.jpg" data-retina="images/countries-retina/big-latin-america.jpg" src="" alt="slide"/>
+
+                    <div class="item-big-content">
+                        <p class="title">Latin America</p>
+                        <ul>
+                            <li>1. Honduras</li>
+                            <li>2. Columbia</li>
+                            <li>3. Panama</li>
+                            <li>4. Brazil</li>
+                            <li>5. Peru</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="item" data-cat="1,2">
+                    <div class="item-content">
+                        <div class="item-slide active slide">
+                            <img class="item-slide-image" data-src="images/countries/england.jpg" data-retina="images/countries-retina/england.jpg" src="" alt="slide"/>
+                            <div class="slide-content">
+                                <span class="title">England</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item" data-cat="2,3">
+                    <div class="item-content">
+                        <div class="item-slide active slide">
+                            <img class="item-slide-image" data-src="images/countries/norway.jpg" data-retina="images/countries-retina/norway.jpg" src="" alt="slide"/>
+                            <div class="slide-content">
+                                <span class="title">Norway</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item" data-cat="2,4">
+                    <div class="item-content">
+                        <div class="item-slide active slide">
+                            <img class="item-slide-image" data-src="images/countries/switzerland.jpg" data-retina="images/countries-retina/switzerland.jpg" src="" alt="slide"/>
+                            <div class="slide-content">
+                                <span class="title">Switzerland</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item" data-cat="1,3">
+                    <div class="item-content">
+                        <div class="item-slide active slide">
+                            <img class="item-slide-image" data-src="images/countries/china.jpg" data-retina="images/countries-retina/china.jpg" src="" alt="slide"/>
+                            <div class="slide-content">
+                                <span class="title">China</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item" data-cat="1,4,2">
+                    <div class="item-content">
+                        <div class="item-slide active slide">
+                            <img class="item-slide-image" data-src="images/countries/germany.jpg" data-retina="images/countries-retina/germany.jpg" src="" alt="slide"/>
+                            <div class="slide-content">
+                                <span class="title">Germany</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item" data-cat="1,3">
+                    <div class="item-content">
+                        <div class="item-slide active slide">
+                            <img class="item-slide-image" data-src="images/countries/japan.jpg" data-retina="images/countries-retina/japan.jpg" src="" alt="slide"/>
+                            <div class="slide-content">
+                                <span class="title">Japan</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item" data-cat="3">
+                    <div class="item-content">
+                        <div class="item-slide active slide">
+                            <img class="item-slide-image" data-src="images/countries/australia.jpg" data-retina="images/countries-retina/australia.jpg" src="" alt="slide"/>
+                            <div class="slide-content">
+                                <span class="title">Australia</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item" data-cat="1,4,3">
+                    <div class="item-content">
+                        <div class="item-slide active slide">
+                            <img class="item-slide-image" data-src="images/countries/india.jpg" data-retina="images/countries-retina/india.jpg" src="" alt="slide"/>
+                            <div class="slide-content">
+                                <span class="title">India</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item" data-cat="4,2">
+                    <div class="item-content">
+                        <div class="item-slide active slide">
+                            <img class="item-slide-image" data-src="images/countries/finland.jpg" data-retina="images/countries-retina/finland.jpg" src="" alt="slide"/>
+                            <div class="slide-content">
+                                <span class="title">Finland</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item" data-cat="3,4">
+                    <div class="item-content">
+                        <div class="item-slide active slide">
+                            <img class="item-slide-image" data-src="images/countries/new-zealand.jpg" data-retina="images/countries-retina/new-zealand.jpg" src="" alt="slide"/>
+                            <div class="slide-content">
+                                <span class="title">New Zealand</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="wrap clearfix">
+            <div class="footer-copyrights">
+                © 2013 - 2015
+            </div>
+
+            <div class="footer-author">
+                Здесь наследили <a href="#">Barboris</a>
+                <span class="footer-icon"></span>
+            </div>
+        </div>
+    </div>
+
+    <script src='//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.0.min.js"><\/script>')</script>
+    <script src="js/jquery.fancybox.pack.js"></script>
+    <script src="js/jquery.lazy.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
