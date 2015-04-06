@@ -96,8 +96,8 @@ a, a:visited {
     background-size: 100% auto;
     cursor: pointer;
 
-    -webkit-transition: all .25s linear;
-    transition: all .25s linear;
+    -webkit-transition: -webkit-transform .25s linear;
+    transition: transform .25s linear;
 }
 
 .item:hover {
