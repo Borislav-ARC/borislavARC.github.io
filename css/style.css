@@ -88,51 +88,99 @@ a, a:visited {
 }
 
 .item {
+
+    /*display: flex;*/
+
     margin: 20% 0 0 10%;
     width: 80%;
     height: 56%;
+    cursor: pointer;
+
+    /*-webkit-transition: -webkit-transform .25s linear;*/
+    /*transition: transform .25s linear;*/
+}
+.item-inner {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    transition: transform 1s;
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-size: 100% auto;
-    cursor: pointer;
-
-    -webkit-transition: -webkit-transform .25s linear;
-    transition: transform .25s linear;
 }
 
 .item:hover {
-    -webkit-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    transform: scale(1.1);
+    /*-webkit-transform: scale(1.1);*/
+    /*-ms-transform: scale(1.1);*/
+    /*transform: scale(1.1);*/
+
+
 }
 
-.item-left {
-    background-image: url("../images/shoes-1.jpg");
-}
+/*.item-left {*/
+    /*background-image: url("../images/shoes-1.jpg");*/
+/*}*/
 
-.next .item-left{
-    background-image: url("../images/watch-1.jpg");
-}
+/*.next .item-left{*/
+    /*background-image: url("../images/watch-1.jpg");*/
+/*}*/
 
-.item-left:hover {
-    background-image: url("../images/smart.png");
-}
+/*.item-left:hover {*/
+    /*background-image: url("../images/smart.png");*/
+/*}*/
 
-.item-right {
+.item-right .item-inner {
     background-image: url("../images/shoes-2.jpg");
 }
 
-.next .item-right {
+.next .item-right .item-inner {
     background-image: url("../images/watch-2.jpg");
 }
 
-.item-right:hover {
-    background-image: url("../images/heart.png");
+.item-right:hover .item-inner{
+    background-image: url("../images/heart-1.png");
+    transform: rotateY( 180deg );
 }
 
 .item-right {
     text-align: right;
 }
+
+.next .item-2 {
+    display: inline-block;
+}
+
+.item-2 {
+    display: none;
+}
+
+.item-hover {
+    transform: rotateY( 180deg );
+    /*display: none;*/
+}
+
+.hover .item-inner {
+    transform: rotateY( 180deg );
+    /*display: inline-block;*/
+}
+
+.item img {
+    backface-visibility: hidden;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+}
+
+/*.hover .item-1,*/
+/*.hover .item-2 {*/
+    /*display: none;*/
+/*}*/
 
 /* Content Bottom */
 .content-bottom {

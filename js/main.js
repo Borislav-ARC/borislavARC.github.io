@@ -14,4 +14,14 @@
             this.parentNode.parentNode.classList.toggle('next');
         });
     }
+
+    $('.item').hover(function() {
+        $(this).addClass('hover')
+    }, function() {
+        var $this = $(this);
+
+        //setTimeout(function(){
+        $(this).removeClass('hover');
+        //},300)
+    })
 })();
