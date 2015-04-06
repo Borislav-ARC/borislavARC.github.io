@@ -95,6 +95,15 @@ a, a:visited {
     background-position: 50% 50%;
     background-size: 100% auto;
     cursor: pointer;
+
+    -webkit-transition: all .25s linear;
+    transition: all .25s linear;
+}
+
+.item:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 .item-left {
@@ -171,13 +180,12 @@ a, a:visited {
 }
 
 .icon:hover {
-    /*box-shadow: 0 0 4px 1px rgba(0, 0, 0, .4);*/
     -webkit-transform: scale(1.2);
     -ms-transform: scale(1.2);
     transform: scale(1.2);
 }
 
-.contacts-block a:hover {
+.content-bottom a:hover {
     text-decoration: underline;
 }
 
