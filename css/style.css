@@ -97,8 +97,8 @@ a, a:visited {
     position: relative;
     height: 100%;
     width: 100%;
-    -ms-transform-style: preserve-3d;
     transform-style: preserve-3d;
+    -webkit-transition: transform 1s;
     transition: transform 1s;
     background-repeat: no-repeat;
     background-position: 50% 50%;
