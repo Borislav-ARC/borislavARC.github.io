@@ -51,7 +51,6 @@ body {
     padding: 4% 4.5%;
     font-size: 25px;
     color: #333;
-
     -webkit-transition: opacity 1s linear;
     transition: opacity 1s linear;
 }
@@ -88,17 +87,12 @@ a, a:visited {
 }
 
 .item {
-
-    /*display: flex;*/
-
     margin: 20% 0 0 10%;
     width: 80%;
     height: 56%;
     cursor: pointer;
-
-    /*-webkit-transition: -webkit-transform .25s linear;*/
-    /*transition: transform .25s linear;*/
 }
+
 .item-inner {
     position: relative;
     height: 100%;
@@ -109,39 +103,6 @@ a, a:visited {
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-size: 100% auto;
-}
-
-.item:hover {
-    /*-webkit-transform: scale(1.1);*/
-    /*-ms-transform: scale(1.1);*/
-    /*transform: scale(1.1);*/
-
-
-}
-
-/*.item-left {*/
-    /*background-image: url("../images/shoes-1.jpg");*/
-/*}*/
-
-/*.next .item-left{*/
-    /*background-image: url("../images/watch-1.jpg");*/
-/*}*/
-
-/*.item-left:hover {*/
-    /*background-image: url("../images/smart.png");*/
-/*}*/
-
-.item-right .item-inner {
-    background-image: url("../images/shoes-2.jpg");
-}
-
-.next .item-right .item-inner {
-    background-image: url("../images/watch-2.jpg");
-}
-
-.item-right:hover .item-inner{
-    background-image: url("../images/heart-1.png");
-    transform: rotateY( 180deg );
 }
 
 .item-right {
@@ -157,13 +118,13 @@ a, a:visited {
 }
 
 .item-hover {
+    -webkit-transform: rotateY( 180deg );
     transform: rotateY( 180deg );
-    /*display: none;*/
 }
 
 .hover .item-inner {
+    -webkit-transform: rotateY( 180deg );
     transform: rotateY( 180deg );
-    /*display: inline-block;*/
 }
 
 .item img {
@@ -177,10 +138,38 @@ a, a:visited {
     width: 100%;
 }
 
-/*.hover .item-1,*/
-/*.hover .item-2 {*/
-    /*display: none;*/
-/*}*/
+/* IF IE or old browser without css - transform: preserve3d */
+.no-csstransformspreserve3d .item-left .item-inner {
+    background-image: url("../images/shoes-1.jpg");
+}
+
+.no-csstransformspreserve3d .next .item-left .item-inner {
+    background-image: url("../images/watch-1.jpg");
+}
+
+.no-csstransformspreserve3d .item-left:hover .item-inner{
+    background-image: url("../images/smart-reverse.png");
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.no-csstransformspreserve3d .item-right .item-inner {
+    background-image: url("../images/shoes-2.jpg");
+}
+
+.no-csstransformspreserve3d .next .item-right .item-inner {
+    background-image: url("../images/watch-2.jpg");
+}
+
+.no-csstransformspreserve3d .item-right:hover .item-inner{
+    background-image: url("../images/heart-reverse.png");
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.no-csstransformspreserve3d .item img {
+    display: none;
+}
 
 /* Content Bottom */
 .content-bottom {
