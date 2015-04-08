@@ -46,17 +46,23 @@ body {
 }
 
 .presentation {
+    height: 100%;
     opacity: 0;
     min-height: 100%;
-    padding: 4% 4.5%;
+    padding: 0 4%;
     font-size: 25px;
     color: #333;
     -webkit-transition: opacity 1s linear;
     transition: opacity 1s linear;
+    position: relative;
 }
 
 .presentation.show {
     opacity: 1;
+}
+
+.content-top {
+    padding-top: 3%;
 }
 
 a, a:visited {
@@ -84,17 +90,19 @@ a, a:visited {
     float: left;
     width: 50%;
     height: 100%;
+    display: flex;
 }
 
 .item {
-    margin: 20% 0 0 10%;
+    position: relative;
+    margin: auto;
     width: 80%;
     height: 56%;
     cursor: pointer;
 }
 
 .item-inner {
-    position: relative;
+    position: absolute;
     height: 100%;
     width: 100%;
     transform-style: preserve-3d;
@@ -109,12 +117,21 @@ a, a:visited {
     text-align: right;
 }
 
+.item-1,
 .next .item-2 {
-    display: inline-block;
+    opacity: 1;
+    height: auto;
 }
 
+.next .item-1,
 .item-2 {
-    display: none;
+    opacity: 0;
+    height: 0;
+}
+
+.item-1, .item-2 {
+    -webkit-transition: opacity .5s linear;
+    transition: opacity .5s linear;
 }
 
 .item-hover {
@@ -174,6 +191,11 @@ a, a:visited {
 /* Content Bottom */
 .content-bottom {
     line-height: 1.1;
+    position: absolute;
+    bottom: 0;
+    padding: 0 4% 3%;
+    width: 100%;
+    left: 0;
 }
 
 .download {
@@ -216,18 +238,22 @@ a, a:visited {
     transition: all .2s linear;
 }
 
-.icon:hover {
-    -webkit-transform: scale(1.2);
-    -ms-transform: scale(1.2);
-    transform: scale(1.2);
-}
-
 .content-bottom a:hover {
     text-decoration: underline;
 }
 
+@media only screen and (min-width: 1680px) {
+    html {
+        min-height: 800px;
+    }
+}
+
+
 /* res1280 */
 @media only screen and (min-width: 1280px) and (max-width: 1679px) {
+    html {
+        min-height: 768px;
+    }
 
     .presentation {
         font-size: 20px;
@@ -264,6 +290,10 @@ a, a:visited {
 
 /* res1024 */
 @media only screen and (min-width: 1024px) and (max-width: 1279px) {
+
+    html {
+        min-height: 600px;
+    }
 
     .presentation {
         font-size: 19px;
@@ -302,8 +332,13 @@ a, a:visited {
 /* res960 */
 @media only screen and (min-width: 960px) and (max-width: 1023px) {
 
+    html {
+        min-height: 480px;
+    }
+
     .presentation {
         font-size: 18px;
+        height: auto;
     }
 
     .contacts-block {
@@ -323,6 +358,7 @@ a, a:visited {
     .presentation {
         font-size: 22px;
         padding: 45px;
+        height: auto;
     }
 
     .brand {
@@ -384,6 +420,7 @@ a, a:visited {
     .presentation {
         font-size: 14px;
         padding: 10% 4.5%;
+        height: auto;
     }
 
     .brand, .logo {
@@ -454,6 +491,7 @@ a, a:visited {
     .presentation {
         font-size: 12px;
         padding: 10% 4.5%;
+        height: auto;
     }
 
     .brand, .logo {

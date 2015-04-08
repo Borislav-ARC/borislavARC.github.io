@@ -1,5 +1,20 @@
 (function() {
 
+    // Set height for main content
+    function setHeight() {
+        var content = $('.content-main');
+        if($(window).width() >= 960 ) {
+            content.height( $('html').height() - content.offset().top - $('.content-bottom').outerHeight());
+        } else {
+            content.css({'height': ''})
+        }
+    }
+    setHeight();
+
+    $(window).resize(function(){
+        setHeight();
+    });
+
     // FadeIn Presentation
     setTimeout(function() {
         document.querySelector('.presentation').classList.add('show');
@@ -22,13 +37,11 @@
 
     // Hover on Item
     function hoverItem() {
-        console.log('1');
         this.classList.add('hover')
     }
 
     // Mouse out from Item
     function mouseOutItem() {
-        console.log('2');
         this.classList.remove('hover')
     }
 
