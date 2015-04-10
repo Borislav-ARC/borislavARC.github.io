@@ -4,12 +4,15 @@
     function setHeight() {
         var content = $('.content-main');
         if($(window).width() >= 960 ) {
-            content.height( $('html').height() - content.offset().top - $('.content-bottom').outerHeight());
+            content.height( $('html').height() - $('.content-top').outerHeight() - $('.content-bottom').outerHeight());
         } else {
             content.css({'height': ''})
         }
     }
-    setHeight();
+    setTimeout(function() {
+        setHeight();
+    }, 10);
+
 
     $(window).resize(function(){
         setHeight();
@@ -25,15 +28,14 @@
     var items = document.querySelectorAll('.item');
 
     for(var i = 0; i < items.length; i++) {
-        items[i].addEventListener('click', clickItem);
         items[i].addEventListener('mouseover', hoverItem);
         items[i].addEventListener('mouseout', mouseOutItem);
     }
 
     // Click on Item
-    function clickItem(){
-        this.parentNode.parentNode.classList.toggle('next');
-    }
+    $('.item').click(function(){
+        $(this).parents('.content-main').toggleClass('next');
+    });
 
     // Hover on Item
     function hoverItem() {
