@@ -25,27 +25,70 @@
 
 
     // Add Events on Images
-    var items = document.querySelectorAll('.item');
-
-    for(var i = 0; i < items.length; i++) {
-        items[i].addEventListener('mouseover', hoverItem);
-        items[i].addEventListener('mouseout', mouseOutItem);
-    }
+    //var items = document.querySelectorAll('.item');
+    //
+    //for(var i = 0; i < items.length; i++) {
+    //    items[i].addEventListener('mouseover', hoverItem);
+    //    items[i].addEventListener('mouseout', mouseOutItem);
+    //}
 
     // Click on Item
-    $('.item').click(function(){
-        $(this).parents('.content-main').toggleClass('next');
-    });
+    if($('html').hasClass('touch')) {
+        $('.item').on('tap', function () {
+
+            var $this = $(this);
+            $this.addClass('hover');
+
+            if($this.hasClass('hover')) {
+                $('.content-main').toggleClass('next');
+            }
+
+            setTimeout(function () {
+                $this.removeClass('hover')
+            }, 3000);
+
+
+        });
+
+        //$(document).on('tap', '.item.hover', function() {
+        //
+        //
+        //
+        //    return false;
+        //})
+    } else {
+        $('.item').on('click', function(){
+            $('.content-main').toggleClass('next');
+        });
+
+        $('.item').hover(function() {
+            var $this = $(this);
+            $this.addClass('hover');
+
+            setTimeout(function() {
+                $this.addClass('animate')
+            }, 300);
+
+        }, function() {
+            var $this = $(this);
+
+            $this.removeClass('hover');
+
+            setTimeout(function() {
+                $this.removeClass('animate')
+            }, 500);
+
+            //setTimeout(function() {
+            //    $this.removeClass('hover')
+            //}, 500);
+        })
+    }
 
     // Hover on Item
-    function hoverItem() {
-        this.classList.add('hover')
-    }
+
 
     // Mouse out from Item
-    function mouseOutItem() {
-        this.classList.remove('hover')
-    }
+
 
     // Check IE or old browsers for css property - transform: preserve3d
     Modernizr.addTest('csstransformspreserve3d', function () {

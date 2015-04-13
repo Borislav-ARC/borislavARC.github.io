@@ -159,6 +159,11 @@ a, a:visited {
 }
 
 /* IF IE or old browser without css - transform: preserve3d */
+.no-csstransformspreserve3d .item.hover .item-inner {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
 .no-csstransformspreserve3d .item-left .item-inner {
     background-image: url("../images/shoes-1.jpg");
 }
@@ -167,10 +172,8 @@ a, a:visited {
     background-image: url("../images/watch-1.jpg");
 }
 
-.no-csstransformspreserve3d .item-left:hover .item-inner{
+.no-csstransformspreserve3d .item-left.animate .item-inner {
     background-image: url("../images/smart-reverse.png");
-    -webkit-transform: rotateY(180deg);
-    transform: rotateY(180deg);
 }
 
 .no-csstransformspreserve3d .item-right .item-inner {
@@ -181,10 +184,8 @@ a, a:visited {
     background-image: url("../images/watch-2.jpg");
 }
 
-.no-csstransformspreserve3d .item-right:hover .item-inner{
+.no-csstransformspreserve3d .item-right.animate .item-inner {
     background-image: url("../images/heart-reverse.png");
-    -webkit-transform: rotateY(180deg);
-    transform: rotateY(180deg);
 }
 
 .no-csstransformspreserve3d .item img {
@@ -256,6 +257,9 @@ a, a:visited {
 
     .brand {
         width: 28%;
+    }
+    .logo {
+        width: 16%;
     }
 }
 
@@ -368,7 +372,7 @@ a, a:visited {
 
     .presentation {
         font-size: 22px;
-        padding: 45px;
+        padding: 25px 45px;
         height: auto;
     }
 
@@ -380,10 +384,14 @@ a, a:visited {
         width: 28%;
     }
 
+    .content-top {
+        padding-top: 0;
+    }
+
     .content-main {
         width: 65%;
         height: 730px;
-        margin-bottom: 60px;
+        margin-bottom: 30px;
     }
 
     .item-wrap {
@@ -394,7 +402,7 @@ a, a:visited {
     }
 
     .item-wrap:first-child {
-        padding-top: 50px;
+        padding-top: 30px;
     }
 
     .item {
@@ -510,7 +518,7 @@ a, a:visited {
 
     .presentation {
         font-size: 12px;
-        padding: 10% 4.5%;
+        padding: 15px;
         height: auto;
     }
 
@@ -575,6 +583,6 @@ a, a:visited {
     }
 
     .content-bottom {
-        padding-bottom: 4%;
+        padding: 0 15px 25px;
     }
 }
