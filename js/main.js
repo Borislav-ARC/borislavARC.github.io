@@ -58,11 +58,11 @@
 
             setTimeout(function() {
                 $this.removeClass('animate')
-            }, 600);
+            }, 700);
         })
     }
 
-    
+
     // Check IE or old browsers for css property - transform: preserve3d
     Modernizr.addTest('csstransformspreserve3d', function () {
         var prop, val, cssText, ret;
