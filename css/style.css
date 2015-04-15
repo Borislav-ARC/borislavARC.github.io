@@ -256,16 +256,28 @@ a, a:visited {
     }
 
     .brand {
-        width: 28%;
+        width: 700px;
+        height: 210px;
     }
     .logo {
-        width: 16%;
+        width: 336px;
+        height: 210px;
     }
 }
 
 
 /* res1280 */
 @media only screen and (min-width: 1280px) and (max-width: 1679px) {
+
+    .brand {
+        width: 520px;
+        height: 155px;
+    }
+    .logo {
+        width: 250px;
+        height: 170px;
+    }
+
     html {
         min-height: 768px;
     }
@@ -305,6 +317,15 @@ a, a:visited {
 
 /* res1024 */
 @media only screen and (min-width: 1024px) and (max-width: 1279px) {
+
+    .brand {
+        width: 455px;
+        height: 136px;
+    }
+    .logo {
+        width: 220px;
+        height: 130px;
+    }
 
     html {
         min-height: 600px;
@@ -346,6 +367,16 @@ a, a:visited {
 
 /* res960 */
 @media only screen and (min-width: 960px) and (max-width: 1023px) {
+
+    .brand {
+        width: 386px;
+        height: 118px;
+    }
+
+    .logo {
+        width: 186px;
+        height: 116px;
+    }
 
     html {
         min-height: 480px;

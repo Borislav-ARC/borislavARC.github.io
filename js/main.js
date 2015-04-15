@@ -13,10 +13,10 @@
         setHeight();
     }, 10);
 
-
     $(window).resize(function(){
         setHeight();
     });
+
 
     // FadeIn Presentation
     setTimeout(function() {
@@ -24,38 +24,21 @@
     }, 300);
 
 
-    // Add Events on Images
-    //var items = document.querySelectorAll('.item');
-    //
-    //for(var i = 0; i < items.length; i++) {
-    //    items[i].addEventListener('mouseover', hoverItem);
-    //    items[i].addEventListener('mouseout', mouseOutItem);
-    //}
-
     // Click on Item
     if($('html').hasClass('touch')) {
         $('.item').on('tap', function () {
-
             var $this = $(this);
-            $this.addClass('hover');
 
             if($this.hasClass('hover')) {
                 $('.content-main').toggleClass('next');
             }
 
+            $this.addClass('hover');
+
             setTimeout(function () {
                 $this.removeClass('hover')
             }, 3000);
-
-
         });
-
-        //$(document).on('tap', '.item.hover', function() {
-        //
-        //
-        //
-        //    return false;
-        //})
     } else {
         $('.item').on('click', function(){
             $('.content-main').toggleClass('next');
@@ -68,7 +51,6 @@
             setTimeout(function() {
                 $this.addClass('animate')
             }, 300);
-
         }, function() {
             var $this = $(this);
 
@@ -76,20 +58,11 @@
 
             setTimeout(function() {
                 $this.removeClass('animate')
-            }, 500);
-
-            //setTimeout(function() {
-            //    $this.removeClass('hover')
-            //}, 500);
+            }, 600);
         })
     }
 
-    // Hover on Item
-
-
-    // Mouse out from Item
-
-
+    
     // Check IE or old browsers for css property - transform: preserve3d
     Modernizr.addTest('csstransformspreserve3d', function () {
         var prop, val, cssText, ret;
