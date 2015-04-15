@@ -58,7 +58,7 @@
 
             setTimeout(function() {
                 $this.removeClass('animate')
-            }, 600);
+            }, 550);
         })
     }
 
